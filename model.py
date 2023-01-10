@@ -8,6 +8,7 @@ class Todo ():
         self.date_added = date_added if date_added is not None else datetime.datetime.now().isoformat()
         self.date_completed = date_completed if date_completed is not None else None
         self.status = status if status is not None else 1 # 1 = open , 2 = completed
-        #self.status = 1 if status is None else 2 # 1 = open , 2 = completed
+        #self.status = 2 if status is None else 1  # 1 = open , 2 = completed
+        #self.status = 1 # 1 = open , 2 = completed
         self.position = position if position is not None else None
         

@@ -65,7 +65,15 @@ def updatetodo(pos:int , task:str , category:str):
 
 def completetodo(position:int):
     c.execute('UPDATE todos SET status = 2, date_completed=:date_completed WHERE position=:position' , 
-    {"position":position , "date_completed":datetime.datetime.now().isoformat()})
+    #c.execute('UPDATE todos SET status = 2 WHERE position=:position' , 
+    {'position':position , 'date_completed':datetime.datetime.now()})
+
+
+#def completetodo(position:str):
+#   c.execute('')
+
+
+
 
 
 
