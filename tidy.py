@@ -9,18 +9,15 @@ console = Console()
 app = typer.Typer()
 
 @app.command(short_help="Add a Task")
-#def add (task:str , category:str):
 def add ():
     task = input("Add title of task: ")
     category = input('Add title of task category: ')
-
     typer.echo(f"adding {task} to the {category} category")
     todo = Todo(task , category  ) 
     inserttodo(todo)
     show()
 
 @app.command(short_help="Delete a Task")
-#def delete (position:int):
 def delete ():
     show()
     position = int(input("What is the position of the task you want to delete: "))
@@ -30,7 +27,6 @@ def delete ():
 
 
 @app.command(short_help="Update a Task")
-#def update (position:int , task:str = None , category:str = None):
 def update (position:int , task:str = None , category:str = None):
     typer.echo(f"Updating task {position}")
     updatetodo(position - 1 , task , category)
@@ -38,25 +34,20 @@ def update (position:int , task:str = None , category:str = None):
 
 
 @app.command(short_help="Complete a Task")
-#def complete (position:int):
 def complete ():
-    position = int(input("What task did you complete: ")) - 1
-    #typer.echo(f"deleting task {position}")
+    position = int(input("What task did you complete (Use the position): ")) - 1
     completetodo(position)
-
-
     show()
 
-    task = gettodo()
-    x = task[position].status
-    y = task[position].task
-    print(x , y)
+    #task = gettodo()
+    #x = task[position].status
+    #y = task[position].task
+    #print(x , y)
 
 
 
 @app.command(short_help="Show all Tasks")
 def show():
-    #tasks = [("Todo1" , "study"),("Todo2" , "Dance")]
     tasks = gettodo() 
     console.print("[bold magenta]Tasks[/bold magenta]","" , justify="center")
 

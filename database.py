@@ -3,7 +3,6 @@ from typing import List
 import datetime
 from model import Todo
 
-
 con = sqlite3.connect("tidy.db")
 c = con.cursor()
 
@@ -67,10 +66,9 @@ def completetodo(position:int):
     c.execute('UPDATE todos SET status = 2, date_completed=:date_completed WHERE position=:position' , 
     #c.execute('UPDATE todos SET status = 2 WHERE position=:position' , 
     {'position':position , 'date_completed':datetime.datetime.now()})
+    con.commit()
 
 
-#def completetodo(position:str):
-#   c.execute('')
 
 
 
