@@ -14,3 +14,4 @@ help command to display all commands and the arguments needed for those commands
 ```
 py tidy.py --help
 ```
+
