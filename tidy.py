@@ -21,11 +21,16 @@ def add ():
 def delete ():
     show()
     position = int(input("What is the position of the task you want to delete: "))
+    
+    #TODO: stopped here, Change the echo to tthe title task
+    todos = gettodo()
+    todos[position]
     typer.echo(f"deleting task {position}")
     deletetodo(position - 1) 
     show()
 
 
+#TODO: format the whole update command 
 @app.command(short_help="Update a Task")
 def update (position:int , task:str = None , category:str = None):
     typer.echo(f"Updating task {position}")
@@ -38,13 +43,6 @@ def complete ():
     position = int(input("What task did you complete (Use the position): ")) - 1
     completetodo(position)
     show()
-
-    #task = gettodo()
-    #x = task[position].status
-    #y = task[position].task
-    #print(x , y)
-
-
 
 @app.command(short_help="Show all Tasks")
 def show():
