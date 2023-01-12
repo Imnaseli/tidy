@@ -66,22 +66,8 @@ def completetodo(position:int):
     c.execute('UPDATE todos SET status = 2, date_completed=:date_completed WHERE position=:position' , 
     #c.execute('UPDATE todos SET status = 2 WHERE position=:position' , 
     {'position':position , 'date_completed':datetime.datetime.now()})
+    
+    #NOTE: Apparently the code got fixed when we used the con.commit command.
+    #TODO: DO more research on why and how that worked
     con.commit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
