@@ -54,13 +54,24 @@ def updatetodo(pos:int , task:str , category:str):
             c.execute('UPDATE todos SET task=:task, category=:category WHERE position=:position',
             {'task':task , 'category':category, 'position':pos})
 
-        elif task is not None:
+        elif task is not None and category is None:
             c.execute('UPDATE todos SET task=:task WHERE position=:position',
             {'task':task , 'position':pos})
 
-        elif category is not None:
+        elif category is not None and task is None:
             c.execute('UPDATE todos SET category=:category WHERE position=:position',
             {'category':category, 'position':pos})
+
+def updatetask(pos:int ,task:str):
+    c.execute('UPDATE todos SET task=:task WHERE position=:position', 
+    {'task':task, 'position':pos} )
+    con.commit()
+
+
+def updatecategory(pos:int ,category:str):
+    c.execute('UPDATE todos SET category=:category WHERE position=:position', 
+    {'category':category, 'position':pos} )
+    con.commit()
 
 def completetodo(position:int):
     c.execute('UPDATE todos SET status = 2, date_completed=:date_completed WHERE position=:position' , 

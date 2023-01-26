@@ -32,9 +32,25 @@ def delete ():
 
 #TODO: format the whole update command 
 @app.command(short_help="Update a Task")
-def update (position:int , task:str = None , category:str = None):
+def update ():
+    show()
+    position = int(input("What task do you want to update (Use the position): ")) - 1
+    option = int(input("""what do you want to update,
+1. category
+2. tasks
+                :"""))
+
+    if option == 1:
+        newcategory = input("Enter new updated category: ")
+        updatecategory(position , newcategory)
+    elif option == 2:
+        newtask = input("Enter new updated task: ")
+        updatetask(position , newtask)
+    else:
+        print("Please enter one of the available options")
+        return
+
     typer.echo(f"Updating task {position}")
-    updatetodo(position - 1 , task , category)
     show()
 
 
