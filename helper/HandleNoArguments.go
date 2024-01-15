@@ -1,5 +1,7 @@
 package helper
 
+// most of this code was copied from https://github.com/charmbracelet/bubbletea/blob/master/examples/list-simple/main.go 
+
 import (
 	"fmt"
 	"io"
@@ -70,7 +72,7 @@ func (d itemDelegate) Render(w io.Writer, m list.Model, index int, listItem list
 	fn := itemStyle.Render
 	if index == m.Index() {
 		fn = func(s ...string) string {
-			return selectedItemStyle.Render("☉ " + strings.Join(s, " "))
+			return selectedItemStyle.Render("| " + strings.Join(s, " "))
 		}
 	}
 
