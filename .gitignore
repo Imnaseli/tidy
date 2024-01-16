@@ -1,2 +1,4 @@
 __pycache__/
 *.exe
+db/databse.db
+Logger/log.txt
