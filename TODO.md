@@ -1,0 +1,6 @@
+- add a task
+- delete a task
+- update a task
+- complete a task
+- show all tasks
+- show all tasks
