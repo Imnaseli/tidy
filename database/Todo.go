@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"time"
 
 	logger "github.com/sijirama/tidy/Logger"
 )
@@ -48,7 +49,7 @@ type TodoComplete struct {
 	Title       string
 	Description string
 	Completed   bool
-	CreatedAt   string
+	CreatedAt   time.Time 
 }
 
 // DisplayTodos retrieves and prints all todos from the database

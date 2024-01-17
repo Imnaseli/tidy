@@ -29,7 +29,8 @@ func HandleListSelect(option string) {
 		CallClear()
 		// Code to handle case when key is 2
 		todos := database.DisplayTodos(DatabaseClient)
-		fmt.Println(todos)
+		//fmt.Println(todos)
+        commands.DisplayTodos(todos)
 		Home()
 	default:
 		// Code to handle other cases
