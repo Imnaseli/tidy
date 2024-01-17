@@ -1,15 +1,12 @@
 package helper
 
 import (
-
-	//"github.com/sijirama/tidy/commands"
 	"github.com/urfave/cli/v2"
 )
 
 func InitApplication() *cli.App {
 
 	// prepare the databse.
-    
 
 	app := &cli.App{
 		Name:  "tidy",
@@ -19,12 +16,16 @@ func InitApplication() *cli.App {
 			if c.NArg() > 0 {
 				HandleEvidentArguments(c.Args())
 			} else {
-				option := HandleNoArguments() // get the option from the list
-				HandleListSelect(option)      // map the option to commands
+				Home()
 			}
 			return nil
 		},
 	}
 
 	return app
+}
+
+func Home() {
+	option := HandleNoArguments() // get the option from the list
+	HandleListSelect(option)      // map the option to commands
 }

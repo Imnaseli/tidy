@@ -15,7 +15,19 @@ var DatabaseClient *sql.DB
 var dbPathUrl = "db/databse.db"
 
 func DatabseInit() {
-	//os.Remove(dbPathUrl) // clear the current file, will soon be removed to clear all the databasse file
+
+	_, err := os.Stat(dbPathUrl)
+	if err == nil {
+		// Database file exists, open it
+		sqliteDatabase, err := sql.Open("sqlite3", dbPathUrl)
+		if err != nil {
+			log.Fatal(err)
+		}
+		DatabaseClient = sqliteDatabase       // let other packages use the client connection
+		logger.LogToFile("Database is ready") // log success
+		return
+	}
+
 	file, err := os.Create(dbPathUrl)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -32,5 +44,5 @@ func DatabseInit() {
 
 	logger.LogToFile("Database is ready") // log success
 
-	defer sqliteDatabase.Close()
+	//defer sqliteDatabase.Close()
 }

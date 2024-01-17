@@ -3,6 +3,9 @@ package helper
 import (
 	"fmt"
 	"os"
+
+	"github.com/sijirama/tidy/commands"
+	"github.com/sijirama/tidy/database"
 )
 
 func HandleListSelect(option string) {
@@ -14,5 +17,22 @@ func HandleListSelect(option string) {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	fmt.Println("The option picked is: ", option, " with option ", key)
+
+	switch key {
+	case 1:
+		//CallClear()
+		todo := commands.AddTodo()
+		database.InsertTodo(DatabaseClient, todo)
+		Home()
+
+	case 2:
+		CallClear()
+		// Code to handle case when key is 2
+		todos := database.DisplayTodos(DatabaseClient)
+		fmt.Println(todos)
+		Home()
+	default:
+		// Code to handle other cases
+		fmt.Println("Unknown option selected")
+	}
 }
