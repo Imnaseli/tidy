@@ -54,7 +54,7 @@ type TodoComplete struct {
 
 // DisplayTodos retrieves and prints all todos from the database
 func DisplayTodos(db *sql.DB) []TodoComplete {
-	rows, err := db.Query("SELECT * FROM todo ORDER BY createdAt")
+	rows, err := db.Query("SELECT * FROM todo ORDER BY createdAt DESC")
 	if err != nil {
 		log.Fatal(err)
 	}
