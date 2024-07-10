@@ -49,7 +49,7 @@ type TodoComplete struct {
 	Title       string
 	Description string
 	Completed   bool
-	CreatedAt   time.Time 
+	CreatedAt   time.Time
 }
 
 // DisplayTodos retrieves and prints all todos from the database

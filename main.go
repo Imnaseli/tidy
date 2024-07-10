@@ -10,13 +10,13 @@ import (
 )
 
 func main() {
-    helper.DatabseInit()
+	helper.DatabseInit()
 	app := helper.InitApplication()
 
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal("Error starting tidy: ", err)
-		logger.LogToFile( fmt.Sprintf("Error starting tidy: ", err))
+		logger.LogToFile(fmt.Sprintf("Error starting tidy: %v", err))
 	}
-    logger.LogToFile("Tidy is ready")
+	logger.LogToFile("Tidy is ready")
 }
